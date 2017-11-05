@@ -12,13 +12,17 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ bootstrap.debian('jessie') }}
+RUN set -x \
+    {{ bootstrap.debian('jessie') }}
 
-{{ base.debian() }}
+RUN set -x \
+    {{ base.debian() }}
 
-{{ baseapp.debian() }}
+RUN set -x \
+    {{ baseapp.debian() }}
 
-{{ php.official(version='7.0') }}
+RUN set -x \
+    {{ php.official(version='7.0') }}
 
 {{ docker.expose('9000') }}
 {{ docker.entrypoint("/entrypoint") }}

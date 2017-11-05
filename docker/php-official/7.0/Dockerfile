@@ -53,7 +53,8 @@ COPY --from=baselayout /baselayout /
 
 COPY conf/ /opt/docker/
 
-# Init bootstrap
+RUN set -x \
+    # Init bootstrap
     && apt-update \
     && /usr/local/bin/generate-dockerimage-info \
     # Enable non-free
@@ -68,7 +69,8 @@ COPY conf/ /opt/docker/
         locales \
     && docker-image-cleanup
 
-# Install packages
+RUN set -x \
+    # Install packages
     && chmod +x /opt/docker/bin/* \
     && apt-install \
         supervisor \
@@ -80,7 +82,8 @@ COPY conf/ /opt/docker/
     && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup
 
-# Install services
+RUN set -x \
+    # Install services
     && apt-install \
         # Install common tools
         zip \
@@ -95,7 +98,8 @@ COPY conf/ /opt/docker/
     && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup
 
-# Install php environment
+RUN set -x \
+    # Install php environment
     && apt-install \
         # Install tools
         imagemagick \
