@@ -15,8 +15,9 @@ ENV WEB_NO_CACHE_PATTERN="\.(css|js|gif|png|jpg|svg|json|xml)$"
 
 COPY conf/ /opt/docker/
 
-# Install development environment
-RUN apk-install \
+RUN set -x \
+    # Install development environment
+    && apk-install \
         # Install tools
         graphviz \
         # Tools

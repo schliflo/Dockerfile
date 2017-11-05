@@ -4,7 +4,8 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ base.alpine() }}
+RUN set -x \
+    {{ base.alpine() }}
 
 {{ docker.entrypoint("/entrypoint") }}
 {{ docker.cmd("supervisord") }}

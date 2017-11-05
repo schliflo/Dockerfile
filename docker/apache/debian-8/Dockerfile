@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install apache
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install apache
+    && apt-install \
         apache2 \
         apache2-mpm-worker \
 	&& sed -ri ' \

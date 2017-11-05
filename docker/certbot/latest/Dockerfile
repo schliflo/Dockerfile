@@ -8,7 +8,8 @@ FROM webdevops/bootstrap:alpine
 VOLUME /etc/letsencrypt
 VOLUME /var/www
 
-RUN /usr/local/bin/apk-install \
+RUN set -x \
+    && apk-install \
         python \
         py-crypto \
         py2-pip \

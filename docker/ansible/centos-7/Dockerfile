@@ -5,8 +5,9 @@
 
 FROM webdevops/bootstrap:centos-7
 
-# Install ansible
-RUN /usr/local/bin/yum-install \
+RUN set -x \
+    # Install ansible
+    && yum-install \
         epel-release \
         PyYAML \
         python-jinja2 \

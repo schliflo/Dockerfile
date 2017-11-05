@@ -4,6 +4,7 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ php7.debian9() }}
+RUN set -x \
+    {{ php7.debian9() }}
 
 {{ docker.expose('9000') }}

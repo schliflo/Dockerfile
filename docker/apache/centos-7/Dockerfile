@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install apache
-RUN /usr/local/bin/yum-install \
+RUN set -x \
+    # Install apache
+    && yum-install \
         httpd \
         mod_ssl \
 	&& sed -ri ' \

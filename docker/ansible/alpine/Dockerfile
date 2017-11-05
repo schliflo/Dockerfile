@@ -5,8 +5,9 @@
 
 FROM webdevops/bootstrap:alpine
 
-# Install ansible
-RUN /usr/local/bin/apk-install \
+RUN set -x \
+    # Install ansible
+    && apk-install \
         python \
         python-dev \
         py-setuptools \

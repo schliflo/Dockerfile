@@ -1,5 +1,6 @@
 {{ docker.from("base-app") }}
 
-{{ ssh.ubuntu() }}
+RUN set -x \
+    {{ ssh.ubuntu() }}
 
 {{ docker.expose('22') }}

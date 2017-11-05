@@ -54,7 +54,6 @@ COPY --from=baselayout /baselayout /
 COPY conf/ /opt/docker/
 
 # Init bootstrap
-RUN set -x \
     && apt-update \
     && /usr/local/bin/generate-dockerimage-info \
     # Enable non-free
@@ -63,15 +62,15 @@ RUN set -x \
     # System update
     && /usr/local/bin/apt-upgrade \
     # Base stuff
-    && /usr/local/bin/apt-install \
+    && apt-install \
         apt-transport-https \
         ca-certificates \
         locales \
     && docker-image-cleanup
 
 # Install packages
-RUN chmod +x /opt/docker/bin/* \
-    && /usr/local/bin/apt-install \
+    && chmod +x /opt/docker/bin/* \
+    && apt-install \
         supervisor \
         wget \
         curl \
@@ -82,7 +81,7 @@ RUN chmod +x /opt/docker/bin/* \
     && docker-image-cleanup
 
 # Install services
-RUN /usr/local/bin/apt-install \
+    && apt-install \
         # Install common tools
         zip \
         unzip \
@@ -97,7 +96,7 @@ RUN /usr/local/bin/apt-install \
     && docker-image-cleanup
 
 # Install php environment
-RUN /usr/local/bin/apt-install \
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \

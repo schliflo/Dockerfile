@@ -15,9 +15,10 @@ ENV WEB_NO_CACHE_PATTERN="\.(css|js|gif|png|jpg|svg|json|xml)$"
 
 COPY conf/ /opt/docker/
 
-# Install development environment
-RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
-    && /usr/local/bin/yum-install \
+RUN set -x \
+    # Install development environment
+    && wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
+    && yum-install \
         # Install tools
         graphviz \
         # Install php development stuff

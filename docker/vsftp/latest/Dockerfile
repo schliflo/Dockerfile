@@ -13,8 +13,9 @@ ENV FTP_USER=application \
 
 COPY conf/ /opt/docker/
 
-# Install vsftp
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install vsftp
+    && apt-install \
         vsftpd \
     && ln -sf /opt/docker/etc/vsftpd/vsftpd.conf /etc/vsftpd.conf \
     && mkdir -p \

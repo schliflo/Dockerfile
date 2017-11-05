@@ -3,8 +3,8 @@
 {% import 'Dockerfile/services.jinja2'  as services %}
 
 {% macro official(role='', version='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -83,10 +83,10 @@ WORKDIR /
 
 
 {% macro officialDevelopment(role='', version='') -%}
-# Install development environment
-RUN wget -O - https://packagecloud.io/gpg.key | apt-key add - \
+    # Install development environment
+    && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
     && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
-    && /usr/local/bin/apt-install \
+    && apt-install \
         blackfire-php \
         blackfire-agent \
     && pecl install xdebug \

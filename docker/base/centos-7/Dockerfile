@@ -11,9 +11,10 @@ ENV DOCKER_CONF_HOME=/opt/docker/ \
 
 COPY conf/ /opt/docker/
 
-# Install services
-RUN chmod +x /opt/docker/bin/* \
-    && /usr/local/bin/yum-install \
+RUN set -x \
+    # Install services
+    && chmod +x /opt/docker/bin/* \
+    && yum-install \
         supervisor \
         wget \
         curl \

@@ -13,8 +13,9 @@ ENV APPLICATION_USER=application \
 
 COPY conf/ /opt/docker/
 
-# Install services
-RUN /usr/local/bin/yum-install \
+RUN set -x \
+    # Install services
+    && yum-install \
         # Install tools
         zip \
         unzip \

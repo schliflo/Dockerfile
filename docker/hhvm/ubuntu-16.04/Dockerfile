@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install hhvm environment
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install hhvm environment
+    && apt-install \
         hhvm \
         imagemagick \
         graphicsmagick \

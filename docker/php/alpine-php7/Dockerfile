@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install php environment
-RUN /usr/local/bin/apk-install \
+RUN set -x \
+    # Install php environment
+    && apk-install \
         # Install tools
         imagemagick \
         graphicsmagick \

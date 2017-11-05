@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install apache
-RUN /usr/local/bin/apk-install \
+RUN set -x \
+    # Install apache
+    && apk-install \
         apache2 \
         apache2-utils \
         apache2-proxy \

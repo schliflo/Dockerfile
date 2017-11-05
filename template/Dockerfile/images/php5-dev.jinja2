@@ -4,8 +4,8 @@
 
 
 {% macro alpine(role='') -%}
-# Install development environment
-RUN apk-install \
+    # Install development environment
+    && apk-install \
         # Install tools
         graphviz \
         # Tools
@@ -21,9 +21,9 @@ RUN apk-install \
 
 
 {% macro centos(role='') -%}
-# Install development environment
-RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
-    && /usr/local/bin/yum-install \
+    # Install development environment
+    && wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
+    && yum-install \
         # Install tools
         graphviz \
         # Install php development stuff
@@ -39,8 +39,8 @@ RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/y
 {%- endmacro %}
 
 {% macro webtatic(role='') -%}
-RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
-    && /usr/local/bin/yum-install \
+    && wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
+    && yum-install \
         # Install tools
         graphviz \
         # Install php development stuff
@@ -56,12 +56,12 @@ RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/y
 {%- endmacro %}
 
 {% macro debian(role='') -%}
-# Install development environment
-RUN /usr/local/bin/apt-install \
+    # Install development environment
+    && apt-install \
         gnupg \
     && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
     && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
-    && /usr/local/bin/apt-install \
+    && apt-install \
         # Install tools
         graphviz \
         # Install php development stuff
@@ -78,12 +78,12 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu(role='') -%}
-# Install development environment
-RUN /usr/local/bin/apt-install \
+    # Install development environment
+    && apt-install \
         gnupg \
     && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
     && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
-    && /usr/local/bin/apt-install \
+    && apt-install \
         # Install tools
         graphviz \
         # Install php development stuff

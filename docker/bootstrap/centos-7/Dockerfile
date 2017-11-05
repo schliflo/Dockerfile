@@ -43,11 +43,11 @@ ENV TERM="xterm" \
 COPY --from=baselayout /baselayout /
 
 
-# Init bootstrap
 RUN set -x \
+    # Init bootstrap
     # System update
     && /usr/local/bin/yum-upgrade \
-    && /usr/local/bin/yum-install \
+    && yum-install \
         epel-release \
     && /usr/local/bin/generate-dockerimage-info \
     && docker-image-cleanup

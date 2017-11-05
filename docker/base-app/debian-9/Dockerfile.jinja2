@@ -4,4 +4,5 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ baseapp.debian9() }}
+RUN set -x \
+    {{ baseapp.debian9() }}

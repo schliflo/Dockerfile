@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install apache
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install apache
+    && apt-install \
         apache2 \
 	&& sed -ri ' \
 		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \

@@ -5,8 +5,9 @@
 
 FROM webdevops/bootstrap:debian-7
 
-# Install ansible
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install ansible
+    && apt-install \
         # Install ansible
         python-minimal \
         python-setuptools \

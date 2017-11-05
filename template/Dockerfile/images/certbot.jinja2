@@ -7,7 +7,7 @@ ENV CERTBOT_DOMAIN  ""
 {%- endmacro %}
 
 {% macro alpine() -%}
-RUN /usr/local/bin/apk-install \
+    && apk-install \
         python \
         py-crypto \
         py2-pip \

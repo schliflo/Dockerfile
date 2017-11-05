@@ -2,11 +2,11 @@
 {% import 'Dockerfile/provision.jinja2' as provision %}
 
 {% macro ubuntu14(role='') -%}
-# Install hhvm environment
-RUN export DEBIAN_FRONTEND=noninteractive && set -x \
+    # Install hhvm environment
+    && export DEBIAN_FRONTEND=noninteractive \
     && apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 \
     && echo "deb http://dl.hhvm.com/ubuntu $(docker-image-info dist-codename) main" >> /etc/apt/sources.list \
-    && /usr/local/bin/apt-install \
+    && apt-install \
         hhvm \
         imagemagick \
         graphicsmagick \
@@ -19,8 +19,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && set -x \
 
 
 {% macro ubuntu16(role='') -%}
-# Install hhvm environment
-RUN /usr/local/bin/apt-install \
+    # Install hhvm environment
+    && apt-install \
         hhvm \
         imagemagick \
         graphicsmagick \

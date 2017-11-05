@@ -2,6 +2,7 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ postfix.ubuntu() }}
+RUN set -x \
+    {{ postfix.ubuntu() }}
 
 {{ docker.expose('25 465 587') }}

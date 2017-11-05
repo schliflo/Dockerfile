@@ -13,8 +13,9 @@ ENV APPLICATION_USER=application \
 
 COPY conf/ /opt/docker/
 
-# Install services
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install services
+    && apt-install \
         # Install common tools
         zip \
         unzip \

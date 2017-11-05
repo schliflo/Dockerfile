@@ -7,10 +7,11 @@ FROM webdevops/php:7.1
 
 COPY conf/ /opt/docker/
 
-# Install development environment
-RUN wget -O - https://packagecloud.io/gpg.key | apt-key add - \
+RUN set -x \
+    # Install development environment
+    && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
     && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
-    && /usr/local/bin/apt-install \
+    && apt-install \
         blackfire-php \
         blackfire-agent \
     && pecl install xdebug \

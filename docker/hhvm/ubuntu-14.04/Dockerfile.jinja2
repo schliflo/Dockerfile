@@ -4,7 +4,8 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ hhvm.ubuntu14() }}
+RUN set -x \
+    {{ hhvm.ubuntu14() }}
 
 {{ docker.expose('9000') }}
 

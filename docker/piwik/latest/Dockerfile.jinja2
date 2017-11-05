@@ -5,4 +5,5 @@ ENV PIWIK_URL          http://example.com/
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ piwik.install() }}
+RUN set -x \
+    {{ piwik.install() }}

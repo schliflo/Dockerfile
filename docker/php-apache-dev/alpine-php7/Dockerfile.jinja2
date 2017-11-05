@@ -6,4 +6,5 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ php7dev.alpine() }}
+RUN set -x \
+    {{ php7dev.alpine() }}

@@ -14,8 +14,9 @@ ENV WEB_PHP_SOCKET=127.0.0.1:9000
 
 COPY conf/ /opt/docker/
 
-# Install apache
-RUN /usr/local/bin/apk-install \
+RUN set -x \
+    # Install apache
+    && apk-install \
         apache2 \
         apache2-utils \
         apache2-proxy \

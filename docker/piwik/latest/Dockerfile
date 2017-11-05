@@ -10,7 +10,8 @@ ENV PIWIK_URL          http://example.com/
 
 COPY conf/ /opt/docker/
 
-RUN mkdir -p /app/ \
+RUN set -x \
+    && mkdir -p /app/ \
     && wget -O/tmp/piwik.zip http://builds.piwik.org/piwik.zip \
     && unzip /tmp/piwik.zip -d /app/ \
     && rm -f /tmp/piwik.zip \

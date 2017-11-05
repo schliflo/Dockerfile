@@ -10,8 +10,9 @@ ENV MAILBOX_USERNAME="dev" \
 
 COPY conf/ /opt/docker/
 
-# Install services
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install services
+    && apt-install \
         dovecot-core \
         dovecot-imapd \
     && /opt/docker/bin/control.sh service.enable postfix \
@@ -19,8 +20,9 @@ RUN /usr/local/bin/apt-install \
     && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup
 
-# Install Roundcube + plugins
-RUN cd /app \
+RUN set -x \
+    # Install Roundcube + plugins
+    && cd /app \
     && rm -rf * \
     && wget https://github.com/roundcube/roundcubemail/releases/download/1.2.2/roundcubemail-1.2.2-complete.tar.gz \
     && tar xf roundcubemail-1.2.2-complete.tar.gz  --strip-components 1 \

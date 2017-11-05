@@ -8,4 +8,5 @@
 
 {{ baselayout.copy() }}
 
-{{ bootstrap.centos() }}
+RUN set -x \
+    {{ bootstrap.centos() }}

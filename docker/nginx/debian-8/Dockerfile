@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install nginx
-RUN /usr/local/bin/apt-install \
+RUN set -x \
+    # Install nginx
+    && apt-install \
         nginx \
     && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup

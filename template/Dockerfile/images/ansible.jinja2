@@ -1,8 +1,8 @@
 {% import 'Dockerfile/docker.jinja2' as docker %}
 
 {% macro alpine() -%}
-# Install ansible
-RUN /usr/local/bin/apk-install \
+    # Install ansible
+    && apk-install \
         python \
         python-dev \
         py-setuptools \
@@ -26,8 +26,8 @@ RUN /usr/local/bin/apk-install \
 
 
 {% macro centos() -%}
-# Install ansible
-RUN /usr/local/bin/yum-install \
+    # Install ansible
+    && yum-install \
         epel-release \
         PyYAML \
         python-jinja2 \
@@ -51,8 +51,8 @@ RUN /usr/local/bin/yum-install \
 
 
 {% macro debian(distribution) -%}
-# Install ansible
-RUN /usr/local/bin/apt-install \
+    # Install ansible
+    && apt-install \
         # Install ansible
         python-minimal \
         python-setuptools \
@@ -78,8 +78,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu() -%}
-# Install ansible
-RUN /usr/local/bin/apt-install \
+    # Install ansible
+    && apt-install \
         python-minimal \
         python-setuptools \
         python-pip \

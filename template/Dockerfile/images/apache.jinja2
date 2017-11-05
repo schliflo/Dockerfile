@@ -2,8 +2,8 @@
 {% import 'Dockerfile/provision.jinja2' as provision %}
 
 {% macro alpine(role='') -%}
-# Install apache
-RUN /usr/local/bin/apk-install \
+    # Install apache
+    && apk-install \
         apache2 \
         apache2-utils \
         apache2-proxy \
@@ -18,8 +18,8 @@ RUN /usr/local/bin/apk-install \
 
 
 {% macro centos(role='') -%}
-# Install apache
-RUN /usr/local/bin/yum-install \
+    # Install apache
+    && yum-install \
         httpd \
         mod_ssl \
 	&& sed -ri ' \
@@ -32,8 +32,8 @@ RUN /usr/local/bin/yum-install \
 
 
 {% macro debian7(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
         apache2-mpm-worker \
         libapache2-mod-fastcgi \
@@ -48,8 +48,8 @@ RUN /usr/local/bin/apt-install \
 {%- endmacro %}
 
 {% macro debian8(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
         apache2-mpm-worker \
 	&& sed -ri ' \
@@ -64,8 +64,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro debian9(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
 	&& sed -ri ' \
 		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
@@ -79,8 +79,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu12(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
         apache2-mpm-worker \
         libapache2-mod-fastcgi \
@@ -97,8 +97,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu14(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
         apache2-mpm-worker \
         libapache2-mod-fastcgi \
@@ -115,8 +115,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu15(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
 	&& sed -ri ' \
 		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
@@ -131,8 +131,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu16(role='') -%}
-# Install apache
-RUN /usr/local/bin/apt-install \
+    # Install apache
+    && apt-install \
         apache2 \
 	&& sed -ri ' \
 		s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \

@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
-    && /usr/local/bin/yum-install \
+RUN set -x \
+    && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
+    && yum-install \
         ImageMagick \
         GraphicsMagick \
         # Install php (cli/fpm)

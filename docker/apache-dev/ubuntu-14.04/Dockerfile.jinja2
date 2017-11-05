@@ -4,6 +4,7 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ apachedev.general() }}
+RUN set -x \
+    {{ apachedev.general() }}
 
 {{ docker.expose('80 443') }}

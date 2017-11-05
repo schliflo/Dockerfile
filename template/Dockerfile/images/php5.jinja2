@@ -3,8 +3,8 @@
 {% import 'Dockerfile/services.jinja2'  as services %}
 
 {% macro alpine(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apk-install \
+    # Install php environment
+    && apk-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -73,8 +73,8 @@ RUN /usr/local/bin/apk-install \
 
 
 {% macro centos(role='') -%}
-# Install php environment
-RUN /usr/local/bin/yum-install \
+    # Install php environment
+    && yum-install \
         # Install tools
         ImageMagick \
         GraphicsMagick \
@@ -120,8 +120,8 @@ RUN /usr/local/bin/yum-install \
 {%- endmacro %}
 
 {% macro centosWebtatic(role='') -%}
-RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
-    && /usr/local/bin/yum-install \
+    && rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
+    && yum-install \
         ImageMagick \
         GraphicsMagick \
         ghostscript \
@@ -163,8 +163,8 @@ RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm \
 {%- endmacro %}
 
 {% macro debian7(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -200,8 +200,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro debian8(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -239,8 +239,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro debian9(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -276,8 +276,8 @@ RUN /usr/local/bin/apt-install \
 {%- endmacro %}
 
 {% macro ubuntu12(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -314,8 +314,8 @@ RUN /usr/local/bin/apt-install \
 
 
 {% macro ubuntu14(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \
@@ -352,8 +352,8 @@ RUN /usr/local/bin/apt-install \
 {%- endmacro %}
 
 {% macro ubuntu16(role='') -%}
-# Install php environment
-RUN /usr/local/bin/apt-install \
+    # Install php environment
+    && apt-install \
         # Install tools
         imagemagick \
         graphicsmagick \

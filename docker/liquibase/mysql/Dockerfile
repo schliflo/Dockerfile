@@ -22,7 +22,8 @@ ENV LIQUIBASE_VERSION="3.5.3" \
 
 COPY conf/ /opt/docker/
 
-RUN apt-get update \
+RUN set -x \
+    && apt-get update \
 	&& apt-get install -yq --no-install-recommends \
 		libmysql-java \
     && wget -q -O/tmp/liquibase.tar.gz "https://github.com/liquibase/liquibase/releases/download/liquibase-parent-${LIQUIBASE_VERSION}/liquibase-${LIQUIBASE_VERSION}-bin.tar.gz" \

@@ -6,4 +6,5 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-{{ php5dev.webtatic() }}
+RUN set -x \
+    {{ php5dev.webtatic() }}

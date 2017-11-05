@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install tools
-RUN /usr/local/bin/yum-install \
+RUN set -x \
+    # Install tools
+    && yum-install \
         nginx \
     && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup

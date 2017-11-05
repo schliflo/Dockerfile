@@ -13,8 +13,9 @@ ENV WEB_DOCUMENT_ROOT=/app \
 
 COPY conf/ /opt/docker/
 
-# Install php environment
-RUN /usr/local/bin/yum-install \
+RUN set -x \
+    # Install php environment
+    && yum-install \
         # Install tools
         ImageMagick \
         GraphicsMagick \
