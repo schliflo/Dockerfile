@@ -15,8 +15,8 @@ RUN set -x \
     && apt-install \
         dovecot-core \
         dovecot-imapd \
-    && /opt/docker/bin/control.sh service.enable postfix \
-    && /opt/docker/bin/control.sh service.enable dovecot \
+    && docker-service enable postfix \
+    && docker-service enable dovecot \
     && docker-run-bootstrap \
     && docker-image-cleanup
 

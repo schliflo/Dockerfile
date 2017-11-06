@@ -197,7 +197,7 @@ ADD web/            /app/public/assets/
 ADD crontab         /etc/cron.d/webdevops-samson-deployment
 
 RUN rake assets:precompile \
-    && /opt/docker/bin/control.sh service.enable cron \
+    && docker-service enable cron \
     && /opt/docker/bin/provision run --tag bootstrap --role webdevops-samson-deployment \
     && /opt/docker/bin/bootstrap.sh \
     && docker-run-bootstrap \

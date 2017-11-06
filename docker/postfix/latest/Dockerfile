@@ -8,7 +8,8 @@ FROM webdevops/base-app:latest
 COPY conf/ /opt/docker/
 
 RUN set -x \
-    && /opt/docker/bin/control.sh service.enable postfix syslog \
+    && docker-service enable syslog \
+    && docker-service enable postfix \
     && docker-run-bootstrap \
     && docker-image-cleanup
 
