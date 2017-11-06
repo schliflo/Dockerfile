@@ -95,7 +95,6 @@ RUN set -x \
         build-essential \
         libssl-dev \
         libffi-dev \
-    && docker-run-bootstrap \
     && docker-image-cleanup
 
 RUN set -x \

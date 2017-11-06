@@ -24,7 +24,6 @@ RUN set -x \
 
 RUN set -x \
     {{ ansible.debian() }} \
-    {{ provision.runBootstrap() }} \
     {{ docker.cleanup() }}
 
 RUN set -x \
