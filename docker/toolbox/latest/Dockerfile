@@ -25,5 +25,4 @@ RUN apk add --no-cache \
     ## Install go-replace
     && wget -O "/usr/local/bin/go-replace" "https://github.com/webdevops/goreplace/releases/download/1.1.2/gr-64-linux" \
     && chmod +x "/usr/local/bin/go-replace" \
-    && "/usr/local/bin/go-replace" --version \
-    && docker-image-cleanup
+    && "/usr/local/bin/go-replace" --version
