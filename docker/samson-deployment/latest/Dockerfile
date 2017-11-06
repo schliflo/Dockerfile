@@ -64,6 +64,7 @@ RUN set -x \
         apt-transport-https \
         ca-certificates \
         locales
+    && docker-image-cleanup
 
 ###############################################################################
 # Base
@@ -94,6 +95,7 @@ RUN set -x \
         build-essential \
         libssl-dev \
         libffi-dev \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 RUN set -x \
@@ -106,6 +108,7 @@ RUN set -x \
         net-tools \
         tzdata \
     && chmod +s /sbin/gosu \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 ###############################################################################
@@ -125,6 +128,7 @@ RUN set -x \
         rsync \
         git \
     && /usr/local/bin/generate-locales \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 ###############################################################################
