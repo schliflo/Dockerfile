@@ -90,19 +90,6 @@ function runEntrypoints() {
     exit 1
 }
 
-###
- # Run "bootstrap" provisioning
- ##
-function runProvisionBootstrap() {
-    for FILE in /opt/docker/provision/bootstrap.d/*.sh; do
-        echo "-> Executing ${FILE}"
-
-        # run custom scripts, only once
-        . "$FILE"
-        rm -f -- "$FILE"
-    done
-}
-
  # Run "entrypoint" provisioning
  ##
 function runProvisionEntrypoint() {
