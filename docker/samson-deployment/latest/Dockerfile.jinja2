@@ -13,7 +13,7 @@
 {{ baselayout.copy() }}
 
 RUN set -x \
-    {{ bootstrap.debian('jessie') }}
+    {{ bootstrap.debian('jessie') }} \
     {{ docker.cleanup() }}
 
 ###############################################################################
