@@ -12,9 +12,7 @@
         ldns \
         openssh-client \
         rsync \
-        git \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+        git
 {%- endmacro %}
 
 
@@ -30,9 +28,7 @@
         bind-utils \
         rsync \
         git \
-    && /usr/local/bin/generate-locales \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    && /usr/local/bin/generate-locales
 {%- endmacro %}
 
 
@@ -48,9 +44,7 @@
         openssh-client \
         rsync \
         git \
-    && /usr/local/bin/generate-locales \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    && /usr/local/bin/generate-locales
 {%- endmacro %}
 
 {% macro debian9(role='') -%}
@@ -65,9 +59,7 @@
         openssh-client \
         rsync \
         git \
-    && /usr/local/bin/generate-locales \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    && /usr/local/bin/generate-locales
 {%- endmacro %}
 
 {% macro ubuntu(role='') -%}
@@ -83,7 +75,5 @@
         rsync \
         git \
     && mkdir -p /var/lib/syslog-ng/ \
-    && /usr/local/bin/generate-locales \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    && /usr/local/bin/generate-locales
 {%- endmacro %}

@@ -56,5 +56,4 @@ RUN set -x \
     && apt-install \
         apt-transport-https \
         ca-certificates \
-        locales \
-    && docker-image-cleanup
+        locales

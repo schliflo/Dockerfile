@@ -21,7 +21,7 @@ RUN set -x \
         sed \
         tzdata \
     && chmod +s /sbin/gosu \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 ENTRYPOINT ["/entrypoint"]

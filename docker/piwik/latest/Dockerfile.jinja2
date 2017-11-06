@@ -6,4 +6,8 @@ ENV PIWIK_URL          http://example.com/
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ piwik.install() }}
+    {{ piwik.install() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+
+VOLUME /app

@@ -67,9 +67,7 @@
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
     # PECL workaround, see webdevops/Dockerfile#78
     && sed -i "s/ -n / /" $(which pecl) \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro debianDotDeb(distribution,role='') -%}
@@ -101,9 +99,7 @@
         php7.0-memcached \
         php-apcu \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro debianSury(distribution,role='') -%}
@@ -148,9 +144,7 @@
         php7.0-mbstring \
         php-apcu \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro debian9(role='') -%}
@@ -184,9 +178,7 @@
         php-memcache \
         php-memcached \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro ubuntu(role='') -%}
@@ -219,9 +211,7 @@
         php-redis \
         php-memcached \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro centosWebtatic(role='') -%}
@@ -259,7 +249,5 @@
     && pecl install redis \
     && echo "extension=redis.so" > /etc/php.d/redis.ini \
     && yum remove -y ImageMagick-devel php70w-devel gcc make \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}

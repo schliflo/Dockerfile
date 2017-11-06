@@ -9,4 +9,6 @@
 {{ baselayout.copy() }}
 
 RUN set -x \
-    {{ bootstrap.alpine() }}
+    {{ bootstrap.alpine() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

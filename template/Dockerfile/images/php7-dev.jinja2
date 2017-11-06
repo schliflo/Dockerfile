@@ -9,9 +9,7 @@
         graphviz \
         # Install php development stuff
         php7-xdebug \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 
@@ -25,9 +23,7 @@
         php7-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro webtatic(role='') -%}
@@ -39,9 +35,7 @@
         php70w-pecl-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro debian(role='') -%}
@@ -57,9 +51,7 @@
         php-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro debianDotDeb(role='') -%}
@@ -75,9 +67,7 @@
         php7.0-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro debianSury(role='') -%}
@@ -93,9 +83,7 @@
         php7.0-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro ubuntu(role='') -%}
@@ -111,7 +99,5 @@
         php-xdebug \
         blackfire-php \
         blackfire-agent \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}

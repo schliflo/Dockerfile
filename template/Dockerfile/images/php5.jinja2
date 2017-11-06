@@ -66,9 +66,7 @@
     # && go-replace  -v -s 'expr -- [$]0 : "'\''.*"' -r 'expr " [$]0" : " '\''.*"' -- /usr/lib/php/build/acinclude.m4
     # && pecl install apcu-4.0.11 \
     # && apk del .pecl-deps \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 
@@ -114,9 +112,7 @@
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
     # Cleanup
     && yum erase -y php-devel gcc \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro centosWebtatic(role='') -%}
@@ -157,9 +153,7 @@
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
     # Cleanup
     && yum erase -y php-devel gcc \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro debian7(role='') -%}
@@ -193,9 +187,7 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 
@@ -232,9 +224,7 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 
@@ -270,9 +260,7 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro ubuntu12(role='') -%}
@@ -307,9 +295,7 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 
@@ -346,9 +332,7 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 
 {% macro ubuntu16(role='') -%}
@@ -378,8 +362,6 @@
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/cli/conf.d/20-mcrypt.ini \
     && ln -sf /etc/php5/mods-available/mcrypt.in /etc/php5/fpm/conf.d/20-mcrypt.ini \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
-    {{ services.php() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.php() }}
 {%- endmacro %}
 

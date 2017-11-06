@@ -7,9 +7,7 @@
         dovecot-core \
         dovecot-imapd \
     && /opt/docker/bin/control.sh service.enable postfix \
-    && /opt/docker/bin/control.sh service.enable dovecot \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    && /opt/docker/bin/control.sh service.enable dovecot
 {%- endmacro %}
 
 {% macro roundcube(role='') -%}
@@ -22,6 +20,5 @@
     && ls -l  \
     && rm -rf .git installer \
     && ln -s /opt/docker/etc/roundcube/plugins/webdevops_autologin/ plugins/webdevops_autologin \
-    && ln -s /opt/docker/etc/roundcube/config.php config/config.inc.php \
-    {{ docker.cleanup() }}
+    && ln -s /opt/docker/etc/roundcube/config.php config/config.inc.php
 {%- endmacro %}

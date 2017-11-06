@@ -26,4 +26,5 @@ RUN set -x \
     && chmod 750 /usr/bin/ansible* \
     # Cleanup
     && apk del python-dev \
+    && docker-run-bootstrap \
     && docker-image-cleanup

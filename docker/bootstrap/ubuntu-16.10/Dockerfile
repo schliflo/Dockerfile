@@ -55,4 +55,5 @@ RUN set -x \
     && apt-add-repository multiverse \
     && apt-update \
     && /usr/local/bin/generate-dockerimage-info \
+    && docker-run-bootstrap \
     && docker-image-cleanup

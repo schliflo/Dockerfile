@@ -4,4 +4,6 @@
 {{ docker.volume('/var/www') }}
 
 RUN set -x \
-    {{ certbot.alpine() }}
+    {{ certbot.alpine() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

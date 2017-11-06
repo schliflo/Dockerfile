@@ -17,7 +17,7 @@ RUN set -x \
         dovecot-imapd \
     && /opt/docker/bin/control.sh service.enable postfix \
     && /opt/docker/bin/control.sh service.enable dovecot \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 RUN set -x \
@@ -30,7 +30,6 @@ RUN set -x \
     && ls -l  \
     && rm -rf .git installer \
     && ln -s /opt/docker/etc/roundcube/plugins/webdevops_autologin/ plugins/webdevops_autologin \
-    && ln -s /opt/docker/etc/roundcube/config.php config/config.inc.php \
-    && docker-image-cleanup
+    && ln -s /opt/docker/etc/roundcube/config.php config/config.inc.php
 
 EXPOSE 25 465 587 143 993

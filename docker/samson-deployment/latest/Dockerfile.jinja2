@@ -22,24 +22,29 @@ RUN set -x \
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ ansible.debian() }}
+    {{ ansible.debian() }} \
+    {{ docker.cleanup() }}
 
 RUN set -x \
-    {{ base.debian() }}
+    {{ base.debian() }} \
+    {{ docker.cleanup() }}
 
 ###############################################################################
 # Base-app
 ###############################################################################
 
 RUN set -x \
-    {{ baseapp.debian() }}
+    {{ baseapp.debian() }} \
+    {{ docker.cleanup() }}
 
 ###############################################################################
 # Samson
 ###############################################################################
 
 RUN set -x \
-    {{ samsonDeployment.general() }}
+    {{ samsonDeployment.general() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 {{ docker.expose('80') }}
 {{ docker.volume('/storage') }}

@@ -9,4 +9,6 @@
 {{ baselayout.copy() }}
 
 RUN set -x \
-    {{ bootstrap.centos() }}
+    {{ bootstrap.centos() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

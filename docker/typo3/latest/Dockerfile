@@ -13,4 +13,6 @@ RUN set -x \
     && chown -R application /app \
     && find /app/ -type d -exec chmod 0755 {} \; \
     && find /app/ -type f -exec chmod 0644 {} \;
-VOLUME /app
+VOLUME /app \
+    && docker-run-bootstrap \
+    && docker-image-cleanup

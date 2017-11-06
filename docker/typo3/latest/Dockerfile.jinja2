@@ -3,4 +3,6 @@
 ENV WEB_DOCUMENT_ROOT /app/web/
 
 RUN set -x \
-    {{ typo3.install() }}
+    {{ typo3.install() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

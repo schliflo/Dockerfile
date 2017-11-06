@@ -79,7 +79,7 @@ RUN set -x \
     # && apk del .pecl-deps \
     # Enable php services
     && docker-service-enable syslog cron \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 EXPOSE 9000

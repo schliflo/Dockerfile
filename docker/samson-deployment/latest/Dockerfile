@@ -63,8 +63,7 @@ RUN set -x \
     && apt-install \
         apt-transport-https \
         ca-certificates \
-        locales \
-    && docker-image-cleanup
+        locales
 
 ###############################################################################
 # Base
@@ -107,7 +106,6 @@ RUN set -x \
         net-tools \
         tzdata \
     && chmod +s /sbin/gosu \
-    && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup
 
 ###############################################################################
@@ -127,7 +125,6 @@ RUN set -x \
         rsync \
         git \
     && /usr/local/bin/generate-locales \
-    && /opt/docker/bin/bootstrap.sh \
     && docker-image-cleanup
 
 ###############################################################################
@@ -202,7 +199,9 @@ ADD crontab         /etc/cron.d/webdevops-samson-deployment
 RUN rake assets:precompile \
     && /opt/docker/bin/control.sh service.enable cron \
     && /opt/docker/bin/provision run --tag bootstrap --role webdevops-samson-deployment \
-    && /opt/docker/bin/bootstrap.sh
+    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
+    && docker-image-cleanup
 
 EXPOSE 80
 VOLUME /storage

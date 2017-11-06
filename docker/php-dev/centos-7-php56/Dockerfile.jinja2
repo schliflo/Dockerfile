@@ -3,4 +3,6 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ php5dev.webtatic() }}
+    {{ php5dev.webtatic() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

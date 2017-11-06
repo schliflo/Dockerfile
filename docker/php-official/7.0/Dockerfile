@@ -66,8 +66,7 @@ RUN set -x \
     && apt-install \
         apt-transport-https \
         ca-certificates \
-        locales \
-    && docker-image-cleanup
+        locales
 
 RUN set -x \
     # Install packages
@@ -79,7 +78,7 @@ RUN set -x \
         net-tools \
         tzdata \
     && chmod +s /sbin/gosu \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 RUN set -x \
@@ -95,7 +94,7 @@ RUN set -x \
         rsync \
         git \
     && /usr/local/bin/generate-locales \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 RUN set -x \
@@ -165,11 +164,10 @@ RUN set -x \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
     # Enable php services
     && docker-service-enable syslog cron \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 WORKDIR /
-
 EXPOSE 9000
 ENTRYPOINT ["/entrypoint"]
 CMD ["supervisord"]

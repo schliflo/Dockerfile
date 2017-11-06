@@ -26,7 +26,9 @@ RUN set -x \
 		' /etc/apache2/apache2.conf \
 	&& rm -f /etc/apache2/sites-enabled/* \
 	&& a2enmod actions fastcgi ssl rewrite headers expires \
-	&& /opt/docker/bin/bootstrap.sh \
+	&& docker-run-bootstrap \
+    && docker-image-cleanup \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 EXPOSE 80 443

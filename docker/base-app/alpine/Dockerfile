@@ -25,5 +25,5 @@ RUN set -x \
         openssh-client \
         rsync \
         git \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup

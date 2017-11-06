@@ -38,7 +38,9 @@ RUN set -x \
     && mkdir /liquibase \
     && ln -sf /opt/docker/bin/entrypoint.sh /entrypoint
 
-WORKDIR /liquibase
+WORKDIR /liquibase \
+    && docker-run-bootstrap \
+    && docker-image-cleanup
 
 ENTRYPOINT ["/entrypoint"]
 

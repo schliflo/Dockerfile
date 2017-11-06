@@ -4,6 +4,5 @@
 {% macro ubuntu(role='') -%}
     # Install services
     && apt-install \
-        liquidsoap \
-    {{ docker.cleanup() }}
+        liquidsoap
 {%- endmacro %}

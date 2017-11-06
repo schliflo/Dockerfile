@@ -18,7 +18,7 @@ RUN set -x \
     # Install nginx
     && apk-install \
         nginx \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 EXPOSE 80 443

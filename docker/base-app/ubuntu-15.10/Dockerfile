@@ -27,5 +27,5 @@ RUN set -x \
         git \
     && mkdir -p /var/lib/syslog-ng/ \
     && /usr/local/bin/generate-locales \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup

@@ -14,9 +14,7 @@
     && apk-install gcc php5-dev autoconf --virtual .pecl-deps \
     && pecl install xdebug \
     && apk del .pecl-deps \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 
@@ -33,9 +31,7 @@
         # Tools
         nano \
         vim \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro webtatic(role='') -%}
@@ -50,9 +46,7 @@
         # Tools
         nano \
         vim \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 {% macro debian(role='') -%}
@@ -71,9 +65,7 @@
         # Tools
         nano \
         vim \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}
 
 
@@ -93,7 +85,5 @@
         # Tools
         nano \
         vim \
-    {{ services.phpDev() }} \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+    {{ services.phpDev() }}
 {%- endmacro %}

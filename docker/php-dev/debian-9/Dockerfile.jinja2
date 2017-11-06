@@ -3,4 +3,6 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ php7dev.debian() }}
+    {{ php7dev.debian() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}

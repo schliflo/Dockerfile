@@ -50,7 +50,7 @@ RUN set -x \
     && yum remove -y ImageMagick-devel php70w-devel gcc make \
     # Enable php services
     && docker-service-enable syslog cron \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 EXPOSE 9000

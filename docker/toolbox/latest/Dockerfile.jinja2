@@ -17,4 +17,5 @@ RUN apk add --no-cache \
         rsync \
         git \
         gnupg \
-    {{ tools.goreplace() }}
+    {{ tools.goreplace() }} \
+    {{ docker.cleanup() }}

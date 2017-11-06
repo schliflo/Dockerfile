@@ -18,4 +18,5 @@ RUN set -x \
     && pip install --upgrade pip \
     && hash -r \
     && pip install pyRFC3339 configobj ConfigArgParse \
+    && docker-run-bootstrap \
     && docker-image-cleanup

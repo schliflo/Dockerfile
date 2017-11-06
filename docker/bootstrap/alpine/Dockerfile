@@ -59,4 +59,5 @@ RUN set -x \
     ## Fix su execution (eg for tests)
     && mkdir -p /etc/pam.d/ \
     && echo 'auth sufficient pam_rootok.so' >> /etc/pam.d/su \
+    && docker-run-bootstrap \
     && docker-image-cleanup

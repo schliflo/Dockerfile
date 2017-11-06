@@ -19,6 +19,7 @@ COPY conf/ /opt/docker/
 RUN set -x \
     && apk-install \
         varnish \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 CMD ["varnishd"]

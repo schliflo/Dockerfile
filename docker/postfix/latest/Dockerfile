@@ -9,7 +9,7 @@ COPY conf/ /opt/docker/
 
 RUN set -x \
     && /opt/docker/bin/control.sh service.enable postfix syslog \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
 
 EXPOSE 25 465 587

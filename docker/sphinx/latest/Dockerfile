@@ -32,4 +32,5 @@ RUN set -x \
     && pip install t3fieldlisttable \
     && pip install t3tablerows \
     && pip install t3targets \
+    && docker-run-bootstrap \
     && docker-image-cleanup

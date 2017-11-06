@@ -5,6 +5,8 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ apache.alpine() }}
+    {{ apache.alpine() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 {{ docker.expose('80 443') }}

@@ -50,4 +50,5 @@ RUN set -x \
     && yum-install \
         epel-release \
     && /usr/local/bin/generate-dockerimage-info \
+    && docker-run-bootstrap \
     && docker-image-cleanup

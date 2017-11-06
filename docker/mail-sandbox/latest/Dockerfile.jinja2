@@ -5,7 +5,9 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ mailsandbox.ubuntu() }}
+    {{ mailsandbox.ubuntu() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 RUN set -x \
     {{ mailsandbox.roundcube() }}

@@ -20,8 +20,7 @@
     && pip install --no-cache-dir ansible \
     && chmod 750 /usr/bin/ansible* \
     # Cleanup
-    && apk del python-dev \
-    {{ docker.cleanup() }}
+    && apk del python-dev
 {%- endmacro %}
 
 
@@ -45,8 +44,7 @@
     && pip install --no-cache-dir ansible \
     && chmod 750 /usr/bin/ansible* \
     # Cleanup
-    && yum erase -y python-devel \
-    {{ docker.cleanup() }}
+    && yum erase -y python-devel
 {%- endmacro %}
 
 
@@ -72,8 +70,7 @@
         python-dev \
         build-essential \
         libssl-dev \
-        libffi-dev \
-    {{ docker.cleanup() }}
+        libffi-dev
 {%- endmacro %}
 
 
@@ -98,7 +95,6 @@
         python-dev \
         build-essential \
         libssl-dev \
-        libffi-dev \
-    {{ docker.cleanup() }}
+        libffi-dev
 {%- endmacro %}
 

@@ -103,21 +103,6 @@ function runProvisionBootstrap() {
     done
 }
 
-###
- # Run "build" provisioning
- ##
-function runProvisionBuild() {
-    includeScriptDir "/opt/docker/provision/build.d"
-}
-
-###
- # Run "onbuild" provisioning
- ##
-function runProvisionOnBuild() {
-    includeScriptDir "/opt/docker/provision/onbuild.d"
-}
-
-###
  # Run "entrypoint" provisioning
  ##
 function runProvisionEntrypoint() {

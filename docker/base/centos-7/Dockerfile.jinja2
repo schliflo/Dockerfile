@@ -5,7 +5,9 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ base.centos() }}
+    {{ base.centos() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 {{ docker.entrypoint("/entrypoint") }}
 {{ docker.cmd("supervisord") }}

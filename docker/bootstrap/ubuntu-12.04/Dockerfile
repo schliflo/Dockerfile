@@ -60,4 +60,5 @@ RUN set -x \
         ca-certificates \
         apt-transport-https \
     && /usr/local/bin/generate-dockerimage-info \
+    && docker-run-bootstrap \
     && docker-image-cleanup

@@ -26,5 +26,5 @@ RUN set -x \
         rsync \
         git \
     && /usr/local/bin/generate-locales \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup

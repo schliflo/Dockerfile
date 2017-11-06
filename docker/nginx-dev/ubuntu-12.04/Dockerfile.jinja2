@@ -4,7 +4,4 @@
 
 {{ docker.copy('conf/', '/opt/docker/') }}
 
-RUN set -x \
-    {{ nginxdev.general() }}
-
 {{ docker.expose('80 443') }}

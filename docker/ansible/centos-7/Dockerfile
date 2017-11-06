@@ -26,4 +26,5 @@ RUN set -x \
     && chmod 750 /usr/bin/ansible* \
     # Cleanup
     && yum erase -y python-devel \
+    && docker-run-bootstrap \
     && docker-image-cleanup

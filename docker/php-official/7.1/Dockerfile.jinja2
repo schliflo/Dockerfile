@@ -16,14 +16,21 @@ RUN set -x \
     {{ bootstrap.debian('jessie') }}
 
 RUN set -x \
-    {{ base.debian() }}
+    {{ base.debian() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 RUN set -x \
-    {{ baseapp.debian() }}
+    {{ baseapp.debian() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 RUN set -x \
-    {{ php.official(version='7.1') }}
+    {{ php.official(version='7.1') }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
+{{ docker.workdir('/') }}
 {{ docker.expose('9000') }}
 {{ docker.entrypoint("/entrypoint") }}
 {{ docker.cmd("supervisord") }}

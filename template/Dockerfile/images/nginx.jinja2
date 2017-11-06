@@ -4,34 +4,26 @@
 {% macro alpine(role='') -%}
     # Install nginx
     && apk-install \
-        nginx \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+        nginx
 {%- endmacro %}
 
 
 {% macro centos(role='') -%}
     # Install tools
     && yum-install \
-        nginx \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+        nginx
 {%- endmacro %}
 
 
 {% macro debian(role='') -%}
     # Install nginx
     && apt-install \
-        nginx \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+        nginx
 {%- endmacro %}
 
 
 {% macro ubuntu(role='') -%}
     # Install nginx
     && apt-install \
-        nginx \
-    {{ provision.runBootstrap() }} \
-    {{ docker.cleanup() }}
+        nginx
 {%- endmacro %}

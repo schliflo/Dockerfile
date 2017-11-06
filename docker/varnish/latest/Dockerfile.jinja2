@@ -5,7 +5,9 @@
 {{ docker.copy('conf/', '/opt/docker/') }}
 
 RUN set -x \
-    {{ varnish.alpine() }}
+    {{ varnish.alpine() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
 
 {{ docker.cmd("varnishd") }}
 

@@ -17,5 +17,8 @@ RUN set -x \
     && rm -f /tmp/piwik.zip \
     && chown -R application /app \
     && find /app/ -type d -exec chmod 0755 {} \; \
-    && find /app/ -type f -exec chmod 0644 {} \;
+    && find /app/ -type f -exec chmod 0644 {} \; \
+    && docker-run-bootstrap \
+    && docker-image-cleanup
+
 VOLUME /app

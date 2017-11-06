@@ -26,5 +26,5 @@ RUN set -x \
         blackfire-agent \
     # Enable php development services
     && docker-service-enable syslog ssh postfix \
-    && /opt/docker/bin/bootstrap.sh \
+    && docker-run-bootstrap \
     && docker-image-cleanup
