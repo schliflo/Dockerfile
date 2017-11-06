@@ -49,7 +49,8 @@ RUN set -x \
     && echo "extension=redis.so" > /etc/php.d/redis.ini \
     && yum remove -y ImageMagick-devel php70w-devel gcc make \
     # Enable php services
-    && docker-service-enable syslog cron \
+    && docker-service enable syslog \
+    && docker-service enable cron \
     && docker-run-bootstrap \
     && docker-image-cleanup
 

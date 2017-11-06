@@ -56,7 +56,8 @@ RUN set -x \
     # Cleanup
     && yum erase -y php-devel gcc \
     # Enable php services
-    && docker-service-enable syslog cron \
+    && docker-service enable syslog \
+    && docker-service enable cron \
     && docker-run-bootstrap \
     && docker-image-cleanup
 

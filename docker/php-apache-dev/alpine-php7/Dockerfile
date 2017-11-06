@@ -23,6 +23,8 @@ RUN set -x \
         # Install php development stuff
         php7-xdebug \
     # Enable php development services
-    && docker-service-enable syslog ssh postfix \
+    && docker-service enable syslog \
+    && docker-service enable postfix \
+    && docker-service enable ssh \
     && docker-run-bootstrap \
     && docker-image-cleanup

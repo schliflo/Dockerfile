@@ -56,7 +56,8 @@ RUN set -x \
         php-apcu \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer \
     # Enable php services
-    && docker-service-enable syslog cron \
+    && docker-service enable syslog \
+    && docker-service enable cron \
     && docker-run-bootstrap \
     && docker-image-cleanup
 

@@ -78,7 +78,8 @@ RUN set -x \
     # && pecl install apcu-4.0.11 \
     # && apk del .pecl-deps \
     # Enable php services
-    && docker-service-enable syslog cron \
+    && docker-service enable syslog \
+    && docker-service enable cron \
     && docker-run-bootstrap \
     && docker-image-cleanup
 

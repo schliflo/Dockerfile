@@ -27,6 +27,8 @@ RUN set -x \
     && pecl install xdebug \
     && apk del .pecl-deps \
     # Enable php development services
-    && docker-service-enable syslog ssh postfix \
+    && docker-service enable syslog \
+    && docker-service enable postfix \
+    && docker-service enable ssh \
     && docker-run-bootstrap \
     && docker-image-cleanup

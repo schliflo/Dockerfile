@@ -79,7 +79,8 @@ RUN set -x \
     # PECL workaround, see webdevops/Dockerfile#78
     && sed -i "s/ -n / /" $(which pecl) \
     # Enable php services
-    && docker-service-enable syslog cron \
+    && docker-service enable syslog \
+    && docker-service enable cron \
     && docker-run-bootstrap \
     && docker-image-cleanup
 
