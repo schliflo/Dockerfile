@@ -60,9 +60,9 @@ shared_examples 'varnish::layout' do
             it { should_not be_writable.by('others') }
 
             # Exectuable test
-            it { should_not be_executable.by('owner') }
-            it { should_not be_executable.by('group') }
-            it { should_not be_executable.by('others') }
+            it { should be_executable.by('owner') }
+            it { should be_executable.by('group') }
+            it { should be_executable.by('others') }
         end
     end
 
