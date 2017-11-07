@@ -157,7 +157,8 @@ RUN set -x \
         zlib1g-dev \
         libpng12-dev \
     # Install extensions for PHP 5.x
-    && pecl install apcu-4.0.11 redis \
+    && pecl install apcu-4.0.11 \
+    && pecl install redis \
     && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini \
     && echo extension=redis.so > /usr/local/etc/php/conf.d/redis.ini \
     && rm -f /usr/local/etc/php-fpm.d/zz-docker.conf \

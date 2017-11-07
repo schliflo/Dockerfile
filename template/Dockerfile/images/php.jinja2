@@ -63,12 +63,14 @@
         libpng12-dev \
 {%- if version|int == 5 %}
     # Install extensions for PHP 5.x
-    && pecl install apcu-4.0.11 redis \
+    && pecl install apcu-4.0.11 \
+    && pecl install redis \
     && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini \
     && echo extension=redis.so > /usr/local/etc/php/conf.d/redis.ini \
 {%- else %}
     # Install extensions for PHP 7.x
-    && pecl install apcu redis \
+    && pecl install apcu \
+    && pecl install redis \
     && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini \
     && echo extension=redis.so > /usr/local/etc/php/conf.d/redis.ini \
 {%- endif %}
