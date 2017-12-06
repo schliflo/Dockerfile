@@ -57,4 +57,4 @@ RUN set -x \
         apt-transport-https \
         ca-certificates \
         locales \
-        gpg
+        gpgv2
