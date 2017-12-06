@@ -67,7 +67,7 @@ RUN set -x \
         apt-transport-https \
         ca-certificates \
         locales \
-        gpgv2
+        gnupg
 
 RUN set -x \
     # Install packages
