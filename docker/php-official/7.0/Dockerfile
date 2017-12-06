@@ -66,7 +66,8 @@ RUN set -x \
     && apt-install \
         apt-transport-https \
         ca-certificates \
-        locales
+        locales \
+        gpg
 
 RUN set -x \
     # Install packages
